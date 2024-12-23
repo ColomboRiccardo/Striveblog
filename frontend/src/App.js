@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router";
+import Button from "react-bootstrap/Button";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+
+import Header from "./components/Header.component";
+import Authors from "./views/Authors.view";
+import AuthorDetails from "./views/AuthorDetails.view";
+import NewAuthor from "./views/NewAuthor.view";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Routes>
+        <Route path="/" element={<div>Home</div>} />
+        <Route path="/authors" element={<Authors />} />
+        <Route
+          path="/authors/:id"
+          element={<AuthorDetails />}
+        />
+        <Route
+          path="/new-authors"
+          element={<NewAuthor />}
+        />
+        <Route path="*" element={<div>404</div>} />
+      </Routes>
     </div>
   );
 }
