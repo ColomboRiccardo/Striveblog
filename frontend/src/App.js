@@ -8,13 +8,16 @@ import Header from "./components/Header.component";
 import Authors from "./views/Authors.view";
 import AuthorDetails from "./views/AuthorDetails.view";
 import NewAuthor from "./views/NewAuthor.view";
+import BlogList from "./views/BlogList.view";
+import BlogDetail from "./views/BlogDetail.view";
 
 function App() {
   return (
     <div className="App">
       <Header />
       <Routes>
-        <Route path="/" element={<div>Home</div>} />
+        <Route path="/" element={<BlogList />} />
+        <Route path="/:page" element={<BlogList />} />
         <Route path="/authors" element={<Authors />} />
         <Route
           path="/authors/:id"
@@ -24,6 +27,7 @@ function App() {
           path="/new-authors"
           element={<NewAuthor />}
         />
+        <Route path="/blog/:id" element={<BlogDetail />} />
         <Route path="*" element={<div>404</div>} />
       </Routes>
     </div>

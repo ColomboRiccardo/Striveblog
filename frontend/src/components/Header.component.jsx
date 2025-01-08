@@ -6,7 +6,7 @@ import { Link } from "react-router";
 
 const Header = () => {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="bg-body-tertiary mb-4">
       <Container>
         <Navbar.Brand href="#home">Striveblog</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

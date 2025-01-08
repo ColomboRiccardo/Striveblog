@@ -34,11 +34,11 @@ const AuthorDetails = () => {
       const response = await fetch(
         `http://localhost:3001/api/authors/${id}`
       );
-      const author = await response.json();
       if (!response.ok) {
         redirect("/404");
         throw new Error("Something went wrong");
       }
+      const author = await response.json();
       setNome(author.nome);
       setCognome(author.cognome);
       setEmail(author.email);
@@ -80,6 +80,7 @@ const AuthorDetails = () => {
       if (!response.ok) {
         throw new Error("Something went wrong");
       }
+      redirect("/authors");
     } catch (error) {
       console.log(error);
     }
