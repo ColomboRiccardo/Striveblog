@@ -11,6 +11,12 @@ const blogPostSchema = new mongoose.Schema({
   },
   author: String,
   content: String,
+  comments: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "comments",
+    },
+  ],
 });
 
 const BlogPost = new mongoose.model(
